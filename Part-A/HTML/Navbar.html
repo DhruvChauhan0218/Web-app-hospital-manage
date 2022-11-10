@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/Navbar.css">
+</head>
+<body>
+    
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"> -->
+
+<nav>
+	<a class="logo" href="#">Logo</a>
+	<ul class="nav-bar">
+		<li class="nav-bar_item" ><a href="./Home.html"  id="Home">home</a></li>
+		<li class="nav-bar_item"><a href="./About.html" id="About">about</a></li>
+		<li class="nav-bar_item dropdown">
+			<a href="#">services</a>
+			<ul class="project">
+				<li class="drop-item"><a href="../HTML/CareProgram.html" id="CareProgram">CareProgram</a></li>
+				<li class="drop-item"><a href="../HTML/Appointment.html" id="Appointment">Appointment</a></li>
+			</ul>
+		</li>
+		<!-- <li class="nav-bar_item"><a href="">services</a></li> -->
+		<li class="nav-bar_item"><a href="./Contact.html" id="Contact">contact</a></li>
+		<li class="nav-bar_item dropdown">
+			<a href="#">Profile</a>
+			<ul class="project">
+				<li class="drop-item"><a href="./MyAccount.html" id="MyAccount">My Account</a></li>
+				<li class="drop-item"><a href="../HTML/Registration.html" onclick="handleLogout()">Signout</a></li>
+			</ul>
+		</li>
+		<!-- <li class="nav-bar_item"><a href="../HTML/Registration.html" onclick="handleLogout()">Logout</a></li> -->
+	</ul>
+</nav>
+	<script>
+
+		const url = window.location.pathname;
+		const id = url.substring(url.lastIndexOf('/')+1).split(".")[0];
+		const ele = document.getElementById(id)
+		ele.classList.add("active");
+		
+	</script>
+</body>
+<script src="../JS/Navbar.js"></script>
+<script src="../JS/API/Api.js"></script>
+<script src="../JS/API/Request.js"></script>
+</html>

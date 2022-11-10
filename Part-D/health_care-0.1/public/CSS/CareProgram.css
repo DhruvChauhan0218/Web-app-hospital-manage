@@ -1,0 +1,167 @@
+.main-container{
+    padding: 24px;
+    flex-grow: 1;
+    min-height: 100vh;
+    background-color: #F2F3F5;
+}
+.container{
+    width: 100%;
+    padding: 24px;
+    margin-top: 20px;
+    border-radius: 4px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 500px;
+}
+
+.careprogram-container {
+    width: 100%;
+    border: 1px solid #F4F4F4;
+    position: relative;
+    min-height: 20px;
+    border-radius: 8px;
+    margin-bottom: 26px;
+}
+
+
+.MuiGrid-spacing-xs-6 > .MuiGrid-item {
+  padding: 24px;
+}
+
+@media (min-width: 1280px) {
+  .MuiGrid-grid-lg-5 {
+    flex-grow: 0;
+    max-width: 29.666667%;
+    flex-basis: 41.666667%;
+  }
+}
+
+.MuiGrid-item {
+    margin: 0;
+    box-sizing: border-box;
+    margin-right: 20px;
+}
+
+.jss658 {
+    color: #32529D;
+    width: 100%;
+    border: 1px solid #5dbad0;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 0px rgb(202 236 244);
+    margin-top: 24px;
+    border-radius: 10px;
+    /* background-image: url(/static/media/sugarcare_bg.84a3d03c.svg); */
+}
+.jss658 main{
+    height: calc(100% - 58px);
+}
+main {
+    display: block;
+}
+
+.jss658 .card-details {
+    padding: 24px;
+}
+.jss658 .left {
+    float: left;
+}
+.jss658 .card-details-text {
+    max-width: calc(100% - 50px);
+    overflow-wrap: anywhere;
+}
+section {
+    display: block;
+}
+.jss658 .MuiTypography-h5 {
+    font-size: 26px;
+    font-weight: bolder;
+    line-height: 36px;
+    letter-spacing: -1px;
+}
+.jss658 .doctor-name-label {
+    margin-top: 16px;
+    font-weight: 500;
+}
+.MuiTypography-body1 {
+    font-size: 1rem;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.jss658 .department-name-label {
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+.MuiTypography-body1 {
+    font-size: 1rem;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.MuiTypography-root {
+    margin: 0;
+}
+.jss658 .right {
+    float: right;
+}
+img {
+    border-style: none;
+}
+.jss658 .card-footer {
+    top: calc(100% - 58px);
+    left: 50px;
+    width: 100%;
+    height: 58px;
+    display: flex;
+    padding: 0px 16px;
+    object-fit: contain;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #caecf4;
+    /* background-color:#ffdbdf; */
+}
+.MuiCheckbox-root {
+    color: rgba(0, 0, 0, 0.54);
+}
+.jss659 {
+    padding: 9px;
+}
+.MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+}
+.MuiButtonBase-root {
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    /* margin: 0; */
+    margin-right: 5px;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+}

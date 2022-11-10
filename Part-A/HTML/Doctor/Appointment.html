@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointments</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="../../CSS/Doctor/Sidebar.css" />
+    <link rel="stylesheet" href="../../CSS/Doctor/Appointment.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="dashboard-app">
+        <div class="dashboard-content">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="hhh3">Appointment Management</h3>
+                    </div>
+                    <div class="card-body">
+                        <table>
+                            <div class="table-container position-relative">
+                                <table class="MuiTable-root jss175" aria-label="table">
+                                    <thead class="MuiTableHead-root">
+                                        <tr class="MuiTableRow-root MuiTableRow-head">
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">S. No.</th>
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">Mobile Number</th>
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col"><span class="MuiButtonBase-root MuiTableSortLabel-root"
+                                                    tabindex="0" role="button" aria-disabled="false">Patient Name</span></th>
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">Doctor Name</th>
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">Date</th>
+                                                <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">Time</th>
+                                                <!-- <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">Status</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody class="MuiTableBody-root" id="tbody">
+                                        <!-- <tr class="MuiTableRow-root jss180 MuiTableRow-hover">
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                001</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                +91 8585858585</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                sprint five test</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                Test care programm</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                <span style="text-transform: capitalize;">Premium Package 1</span></td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                <span dottype="warning" class="jss199 jss200">Pending</span></td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                <span dottype="warning" class="jss199 jss201"><button class="dlt">Delete
+                                                        Appointment<a class="" href="#popup1"></button><br><span><button
+                                                            class="presc">Add
+                                                            Prescription</button></span></span></a>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                                <div class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-space-between"
+                                    style="margin-top: 30px;">
+                                    <div class="MuiGrid-root MuiGrid-item"></div>
+                                    <div class="MuiGrid-root MuiGrid-item">
+                                        <div class="jss176">
+                                            <nav aria-label="pagination navigation" class="MuiPagination-root">
+                                                <ul class="MuiPagination-ul">
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Prescription</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <textarea type="text" placeholder="Enter Prescription" autocomplete="off" id="prescription"></textarea>
+                <button class="ap_btn" onclick="handlePrescription()">Send Now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../Doctor/Sidebar.html");
+        });
+    </script>
+    <script>
+         async function getAppointments(){
+            const clinicData = await getClinic(localStorage.getItem('clinicId'))
+            let {department} = clinicData.data
+            const res = await getAllAppointment()
+            if(res && res.data && department){    
+                let parent = document.getElementById('tbody')
+                res.data.map((ele,index)=>{
+                    if(ele.department == department){
+                        let row = ` <tr class="MuiTableRow-root jss180 MuiTableRow-hover">
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                00${index+1}</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                ${ele.patientphone}</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                               ${ele.patientname}</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                ${ele.doctorname}</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                <span style="text-transform: capitalize;">${ele.date}</span></td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                <span dottype="warning" class="jss199 jss200">${ele.time}</span></td>
+                                                <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                <span dottype="warning" class="jss199 jss201"><button class="dlt" onclick="handleDelete(this.id)">Delet Appointment
+                                                <a class="" href="#popup1"></button><br><span><button class="presc" onclick="addPrescription(this.id)">Add Prescription</button></span></span></a>
+                                            </td>
+    
+                                        </tr>`
+                        parent.innerHTML += row
+                    }
+                })
+
+                res.data.map((ele,index)=>{
+                    document.getElementsByClassName("dlt")[index].id = ele.id
+                })
+                res.data.map((ele,index)=>{
+                    document.getElementsByClassName("presc")[index].id = ele.patientId
+                })
+            }else{
+                alert("something went wrong")
+            }
+        }
+        window.onload = getAppointments
+    </script>
+    <script>
+        async function handleDelete(id){
+            // const res  = await deleteAppointment(id)
+            const res = await axios.delete("http://localhost:3000/delete-appointment", { data: { id: id }, headers: { "Authorization": null } });
+            console.log(res);
+            if(res && res.data){
+                alert(res.data.message)
+                window.location.reload()
+            }else{
+                alert("Something went wrong")
+            }
+        }
+    </script>
+    <script>
+         function addPrescription(id){
+            let btn = document.getElementsByClassName('ap_btn')[0]
+            btn.id = id
+        }
+
+        async function handlePrescription(){
+            let patientId = document.getElementsByClassName('ap_btn')[0].id
+            let prescription = document.getElementById("prescription").value
+            const payload = {patientId ,prescription}
+            const res = await  submitPrescription(payload)
+            if(res && res.data){
+                alert(res.message)
+                window.location.reload()
+            }else{
+                alert("something went wrong")
+            }
+        }
+    </script>
+</body>
+<script src="../../JS/API/Api.js"></script>
+<script src="../../JS/API/Request.js"></script>
+</html>

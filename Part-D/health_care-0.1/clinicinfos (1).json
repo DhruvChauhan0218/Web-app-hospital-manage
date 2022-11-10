@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "61a50a7b91043acdf6965d97"
+  },
+  "clinic": "asdfs",
+  "medical": "asdf",
+  "experience": "asdf",
+  "country": "asdf",
+  "state": "asdf",
+  "city": "asdf",
+  "department": "aaa",
+  "doctorId": "aaa",
+  "__v": 0
+}]

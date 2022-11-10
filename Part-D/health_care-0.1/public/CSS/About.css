@@ -1,0 +1,90 @@
+p{
+    font-family: "Proxima Nova", sans-serif !important;
+    line-height: 22px;
+    font-size: 16px;
+    padding: 24px;
+}
+.overview{
+    text-align: center;
+    letter-spacing: 1.3px;
+}
+.sec-overview{
+    padding: 45px;
+    background-color: gainsboro;
+}
+
+.format{
+    padding: 30px;
+}
+.text{
+    width:60%;
+}
+.img_right{
+    padding-right: 70px;
+}
+
+.img_left{
+    padding-left: 70px;
+}
+
+/* 
+html
+{
+	padding: 0 1em;
+	font-family: Calibri, sans-serif;
+}
+
+body
+{
+	margin: auto;
+	max-width: 42em;
+} */
+
+img
+{
+	max-width: 100%;
+}
+
+.image-left, .image-right
+{
+	margin: 1em 0;
+}
+
+@media (min-width: 20em)
+{
+	.image-left, .image-right
+	{
+		display: flex;
+		align-items: center;
+	}
+
+	.image-left img
+	{
+		margin-right: 16em;
+		float: left; /* fallback */
+	}
+
+	.image-right img
+	{
+		order: 1;
+		margin-left: 16em;
+		float: right; /* fallback */
+	}
+	
+	/* clearfix for fallback */
+	.image-left::after,
+	.image-right::after
+	{
+		content: "";
+  	display: block;
+		clear: both;
+	}
+}
+
+@media (min-width: 30em)
+{
+	.image-left img, .image-right img
+	{
+		flex-shrink: 0;
+	}
+}

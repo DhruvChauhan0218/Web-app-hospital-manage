@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointments</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="../../CSS/Doctor/Sidebar.css" />
+    <link rel="stylesheet" href="../../CSS/Doctor/Patient.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="dashboard-app">
+        <div class="dashboard-content">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="hhh3">Patient Management</h3>
+                    </div>
+                    <div class="card-body">
+                        <table>
+                            <div class="table-container position-relative">
+                                <table class="MuiTable-root jss175" aria-label="table">
+                                    <thead class="MuiTableHead-root">
+                                        <tr class="MuiTableRow-root MuiTableRow-head">
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">S. No.</th>
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">Mobile Number</th>
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col"><span class="MuiButtonBase-root MuiTableSortLabel-root"
+                                                    tabindex="0" role="button" aria-disabled="false">Patient Name</span></th>
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">Gender</th>
+                                            <th class="MuiTableCell-root MuiTableCell-head jss178 MuiTableCell-alignLeft"
+                                                scope="col">email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="MuiTableBody-root" id="tbody">
+                                        <!-- <tr class="MuiTableRow-root jss180 MuiTableRow-hover">
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                001</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                +91 8585858585</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                sprint five test</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                Test care programm</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                <span style="text-transform: capitalize;">Premium Package 1</span></td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                                <div class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-space-between"
+                                    style="margin-top: 30px;">
+                                    <div class="MuiGrid-root MuiGrid-item"></div>
+                                    <div class="MuiGrid-root MuiGrid-item">
+                                        <div class="jss176">
+                                            <nav aria-label="pagination navigation" class="MuiPagination-root">
+                                                <ul class="MuiPagination-ul">
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../Doctor/Sidebar.html");
+        });
+    </script>
+     <script>
+        async function getPatients(){
+    
+           const res = await getAllPatient()
+           console.log(res);
+           if(res && res.data){    
+               let parent = document.getElementById('tbody')
+               res.data.map((ele,index)=>{
+
+                       let row = ` <tr class="MuiTableRow-root jss180 MuiTableRow-hover">
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                00${index+1}</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                               ${ele.phone}</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                ${ele.firstname} ${ele.lastname}</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                ${ele.gender}</td>
+                                            <td
+                                                class="MuiTableCell-root MuiTableCell-body jss179 MuiTableCell-alignLeft">
+                                                <span style="text-transform: capitalize;">${ele.email}</span></td>
+                                        </tr>`
+                       parent.innerHTML += row
+               })
+           }else{
+               alert("something went wrong")
+           }
+       }
+       window.onload = getPatients
+   </script>
+</body>
+<script src="../../JS/API/Request.js"></script>
+<script src="../../JS/API/Api.js"></script>
+</html>

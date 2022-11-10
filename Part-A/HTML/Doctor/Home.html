@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="../../CSS/Doctor/Sidebar.css" />
+    <link rel="stylesheet" href="../../CSS/MyAccount.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="dashboard-app">
+
+        <div class="dashboard-content">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 id="doctorname">Welcome back Jim</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="profile-container">
+                              <label class="profile-container-label">Profile info</label>
+                              <div class="MuiGrid-container">
+                                <form action="" style="display: block">
+                                  <div class="right-container"><button type="button" id="profileEditBtn" onclick="handleProfileInfoEdit()">Edit</button></div>
+                                  <div class="right-container"><button type="button" id="profileCancleBtn" onclick="handleProfileInfoCancle()">Cancle</button></div>
+                                  <div class="form-container">
+                    
+                                    <div class="MuiGrid-grid-md-4">
+                                        <div class="MuiFormControl-root">
+                                          <label class="MuiInputLabel-shrink" style="transform: translate(-20px, 12px) scale(0.79)">First Name</label>
+                                          <div class="MuiInputBase-root">
+                                            <input type="text" name="firstname" id="firstname"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                      
+                                      <div class="MuiGrid-grid-md-4">
+                                        <div class="MuiFormControl-root">
+                                          <label class="MuiInputLabel-shrink" style="transform: translate(-20px, 12px) scale(0.79)">Last Name</label>
+                                          <div class="MuiInputBase-root">
+                                            <input type="text" name="lastname" id="lastname" />
+                                          </div>
+                                        </div>
+                                      </div>
+                      
+                                      <div class="MuiGrid-grid-md-4">
+                                        <div class="MuiFormControl-root">
+                                          <label class="MuiInputLabel-shrink" style="transform: translate(-20px, 12px) scale(0.79)">Email</label>
+                                          <div class="MuiInputBase-root">
+                                            <input type="email" name="email" id="email"  />
+                                          </div>
+                                        </div>
+                                      </div>
+                      
+                                      <div class="MuiGrid-grid-md-4">
+                                          <div class="MuiFormControl-root">
+                                            <label class="MuiInputLabel-shrink" style="transform: translate(-20px, 12px) scale(0.79)">Password</label>
+                                            <div class="MuiInputBase-root">
+                                              <input type="password" name="password" id="password" />
+                                            </div>
+                                          </div>
+                                      </div>
+                                        
+                                      <div class="MuiGrid-grid-md-4">
+                                          <div class="MuiFormControl-root">
+                                            <label class="MuiInputLabel-shrink" style="transform: translate(-20px, 12px) scale(0.79)">Gender</label>
+                                            <div class="MuiInputBase-root">
+                                              <select name="gender" id="gender">
+                                                  <option value="male">Male</option>
+                                                  <option value="female">Female</option>
+                                                  <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="MuiGrid-grid-md-4">
+                                          <div class="MuiFormControl-root">
+                                            <label class="MuiInputLabel-shrink" style="transform: translate(-20px, 12px) scale(0.79)">Role</label>
+                                            <div class="MuiInputBase-root">
+                                              <input type="text" name="role" id="role"/>
+                                            </div>
+                                          </div>
+                                      </div>
+                      
+                                      <div class="MuiGrid-grid-md-4">
+                                          <div class="MuiFormControl-root">
+                                            <label class="MuiInputLabel-shrink" style="transform: translate(-20px, 12px) scale(0.79)">Phone</label>
+                                            <div class="MuiInputBase-root">
+                                              <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" title="Enter correct phone number" />
+                                            </div>
+                                          </div>
+                                      </div>
+                                    
+                                  </div>
+                                  <div>
+                                    <button id="profileSubmitBtn" type="button" onclick="handleProfileInfoSubmit()">Save Changes</button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="profile-container">
+                              <label class="profile-container-label">Clinic info</label>
+                              <div class="MuiGrid-container">
+                                <form action="" style="display: block">
+                                  <div class="right-container"><button type="button" id="ClinicInfoEditBtn" onclick="handleClinicInfoEdit()">Edit</button></div>
+                                  <div class="right-container"><button type="button" id="ClinicInfoCancleBtn" onclick="handleClinicInfoCancle()">Cancle</button></div>
+                                  <div class="form-container">
+                    
+                                    <div class="MuiGrid-grid-md-4">
+                                        <div class="MuiFormControl-root">
+                                        <label class="profile-container-label">Clinic Name</label>
+                                          <div class="MuiInputBase-root">
+                                            <input type="text" name="clinic" id="clinic" />
+                                          </div>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="MuiGrid-grid-md-4">
+                                      <div class="MuiFormControl-root">
+                                        <label class="profile-container-label">Medical Registration Number</label>
+                                        <div class="MuiInputBase-root">
+                                          <input type="text" name="medical" id="medical"/>
+                                        </div>
+                                      </div>
+                                    </div>
+                    
+                                    <div class="MuiGrid-grid-md-4">
+                                        <div class="MuiFormControl-root">
+                                          <div class="MuiInputBase-root">
+                                            <select name="department" id="department">
+                                                <option value="department" disabled selected>Department</option>
+                                              </select>
+                                          </div>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="MuiGrid-grid-md-4">
+                                      <div class="MuiFormControl-root">
+                                        <label class="profile-container-label">Experience</label>
+                                        <div class="MuiInputBase-root">
+                                          <input type="text" name="experience" id="experience" />
+                                        </div>
+                                      </div>
+                                    </div>
+                    
+                                    <div class="MuiGrid-grid-md-4">
+                                        <div class="MuiFormControl-root">
+                                        <label class="profile-container-label">Country</label>
+                                          <div class="MuiInputBase-root">
+                                            <input type="text" name="country" id="country"/>
+                                          </div>
+                                        </div>
+                                      </div>
+                    
+                                      <div class="MuiGrid-grid-md-4">
+                                        <div class="MuiFormControl-root">
+                                        <label class="profile-container-label">State</label>
+                                          <div class="MuiInputBase-root">
+                                            <input type="text" name="state" id="state" />
+                                          </div>
+                                        </div>
+                                      </div>
+                    
+                                      <div class="MuiGrid-grid-md-4">
+                                        <div class="MuiFormControl-root">
+                                        <label class="profile-container-label">City</label>
+                                          <div class="MuiInputBase-root">
+                                            <input type="text" name="city" id="city" />
+                                          </div>
+                                        </div>
+                                     </div>
+                                     
+                                  </div>
+                                  <div>
+                                    <button id="ClinicInfoSubmitBtn" type="button" onclick="handleClinicInfoSubmit()">Save Changes</button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../Doctor/Sidebar.html");
+        });
+    </script>
+</body>
+<script src="../../JS/API/Api.js"></script>
+<script src="../../JS/API/Request.js"></script>
+<script src="../../JS/Docotor/Home.js"></script>
+
+</html>

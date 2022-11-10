@@ -1,0 +1,123 @@
+.main-container{
+    padding: 24px;
+    flex-grow: 1;
+    min-height: 100vh;
+    background-color: #F2F3F5;
+}
+.container{
+    width: 100%;
+    padding: 24px;
+    margin-top: 20px;
+    border-radius: 4px;
+    background-color: white
+}
+
+.profile-container {
+    width: 100%;
+    border: 1px solid #F4F4F4;
+    position: relative;
+    min-height: 20px;
+    border-radius: 8px;
+    margin-bottom: 26px;
+}
+
+.profile-container-label{
+    top: -9px;
+    left: 8px;
+    color: #717171 !important;
+    position: absolute;
+    font-size: 12px;
+    padding-left: 5px;
+    /* background-color: white; */
+}
+.MuiGrid-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.right-container{
+    top: -12px;
+    right: 40px;
+    position: absolute;
+}
+
+.form-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+@media (min-width: 960px){
+    .MuiGrid-grid-md-4 {
+        padding: 20px;
+        flex-grow: 0;
+        max-width: 33.333333%;
+        flex-basis: 33.333333%;
+    }
+}
+
+.MuiFormControl-root{
+    width: 100%;
+    border: 0;
+    margin: 0;
+    display: inline-flex;
+    padding: 0;
+    position: relative;
+    min-width: 0;
+    flex-direction: column;
+    vertical-align: top;
+}
+.MuiInputLabel-shrink{
+    transform: translate(-20px, 10px) scale(0.76);
+    color: black;
+}
+
+.MuiInputBase-root{
+    width: 100%;
+    border-radius: 8px;
+    background-color: #F4F4F4
+}
+
+input,select{
+    opacity: 1;
+    color: #000000;
+    padding: 22px 15px 12px !important;
+    font-size: 16px;
+    font-weight: 600;
+    background: #F4F4F4;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+}
+
+select{
+    width: 98%;
+}
+
+#profileEditBtn,#profileCancleBtn, #editBtn , #cancleBtn{
+    width: 61px;
+    cursor: pointer;
+    height: 24px;
+    background: #35C5EA;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    color: white;
+}
+#profileSubmitBtn,#submitBtn{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    height: 39px;
+    width: 135px;
+    color: white;
+    border: none;
+    outline: none;
+    background: #35C5EA;
+    border-radius: 8px;
+    cursor: pointer;
+}

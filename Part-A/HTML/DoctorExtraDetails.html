@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Info</title>
+    <link rel="stylesheet" href="../CSS/MyAccount.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  </head>
+  <body>
+    <div class="main-container">
+    <h2>Doctor Info</h2>
+      <div class="container">
+        <div class="profile-container">
+          <label class="profile-container-label">info</label>
+          <div class="MuiGrid-container">
+            <form action="" style="display: block">
+              <div class="form-container">
+                
+                <div class="MuiGrid-grid-md-4">
+                    <div class="MuiFormControl-root">
+                      <div class="MuiInputBase-root">
+                        <input type="text" name="clinic" id="clinic" placeholder="Clinic Name"/>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="MuiGrid-grid-md-4">
+                  <div class="MuiFormControl-root">
+                    <div class="MuiInputBase-root">
+                      <input type="text" name="medical" id="medical" placeholder="Medical Registration Number"/>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="MuiGrid-grid-md-4">
+                    <div class="MuiFormControl-root">
+                      <div class="MuiInputBase-root">
+                        <select name="department" id="department">
+                            <option value="department" disabled selected>Department</option>
+                            
+                          </select>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="MuiGrid-grid-md-4">
+                  <div class="MuiFormControl-root">
+                    <div class="MuiInputBase-root">
+                      <input type="text" name="experience" id="experience" placeholder="Experience"/>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="MuiGrid-grid-md-4">
+                    <div class="MuiFormControl-root">
+                      <div class="MuiInputBase-root">
+                        <input type="text" name="country" id="country" placeholder="Country"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="MuiGrid-grid-md-4">
+                    <div class="MuiFormControl-root">
+                      <div class="MuiInputBase-root">
+                        <input type="text" name="state" id="state" placeholder="State"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="MuiGrid-grid-md-4">
+                    <div class="MuiFormControl-root">
+                      <div class="MuiInputBase-root">
+                        <input type="text" name="city" id="city" placeholder="City"/>
+                      </div>
+                    </div>
+                 </div>
+                
+              </div>
+              <div>
+                <button id="submitBtn" type="button" onclick="handleSubmit()">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+   <script src="../JS/API/Api.js"></script>
+   <script src="../JS/API/Request.js"></script>
+   <script src="../JS/DoctorExtraDetails.js"></script>
+
+  </body>
+</html>

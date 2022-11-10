@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="../../CSS/Doctor/Sidebar.css" />
+    <link rel="stylesheet" href="../../CSS/MyAccount.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="dashboard-app">
+
+        <div class="dashboard-content">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 id="doctorname">Add care program</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="profile-container">
+                                <label class="profile-container-label">Care Program information</label>
+                                <div class="MuiGrid-container">
+                                    <form action="" style="display: block">   
+                                        <div class="form-container">
+                                            <div class="MuiGrid-grid-md-4">
+                                                <div class="MuiFormControl-root">
+                                                    <label class="MuiInputLabel-shrink"
+                                                        style="transform: translate(-20px, 12px) scale(0.79)">Care Program Name</label>
+                                                    <div class="MuiInputBase-root">
+                                                        <input type="text" name="name" id="name" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="MuiGrid-grid-md-4">
+                                                <div class="MuiFormControl-root">
+                                                    <label class="MuiInputLabel-shrink"
+                                                        style="transform: translate(-20px, 12px) scale(0.79)">Description</label>
+                                                    <div class="MuiInputBase-root">
+                                                        <input type="text" name="description" id="description" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="MuiGrid-grid-md-4">
+                                                <div class="MuiFormControl-root">
+                                                    <label class="MuiInputLabel-shrink"
+                                                        style="transform: translate(-20px, 12px) scale(0.79)">Primary Doctor</label>
+                                                    <div class="MuiInputBase-root">
+                                                        <input type="text" name="doctor" id="doctor" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="MuiGrid-grid-md-4">
+                                                <div class="MuiFormControl-root">
+                                                    <label class="MuiInputLabel-shrink"
+                                                        style="transform: translate(-20px, 12px) scale(0.79)">Speciality</label>
+                                                    <div class="MuiInputBase-root">
+                                                        <input type="text" name="speciality" id="speciality" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="MuiGrid-grid-md-4">
+                                                <div class="MuiFormControl-root">
+                                                    <label class="MuiInputLabel-shrink"
+                                                        style="transform: translate(-20px, 12px) scale(0.79)">Benefits</label>
+                                                    <div class="MuiInputBase-root">
+                                                        <input type="text" name="benefits" id="benefits" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="MuiGrid-grid-md-4">
+                                                <div class="MuiFormControl-root">
+                                                    <label class="MuiInputLabel-shrink"
+                                                        style="transform: translate(-20px, 12px) scale(0.79)">Duration</label>
+                                                    <div class="MuiInputBase-root">
+                                                        <input type="text" name="duration" id="duration" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <button id="profileSubmitBtn" type="button"
+                                                onclick="handleSubmit()">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../Doctor/Sidebar.html");
+        });
+    </script>
+    <script>
+        async function handleSubmit(){
+            let name = document.getElementById('name').value
+            let description = document.getElementById('description').value
+            let doctor = document.getElementById('doctor').value
+            let department = document.getElementById('speciality').value
+            let benefits = document.getElementById('benefits').value
+            let duration = document.getElementById('duration').value
+
+            const payload  = {name,description,doctor,department,benefits,duration}
+            const res= await createCareProgram(payload)
+            if(res && res.data){
+                alert("Care Program created successfully")
+                window.location.reload()
+            }else{
+                alert("Something went wrong")
+            }
+        }
+    </script>
+</body>
+<script src="../../JS/API/Api.js"></script>
+<script src="../../JS/API/Request.js"></script>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="../CSS/Contact.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  </head>
+
+  <body>
+    <div id="nav-placeholder"></div>
+    <section class="main-container">
+      <div class="container">
+        <div class="content">
+          <div class="left-side">
+            <div class="address details">
+              <i class="far fa-question-circle"></i>
+              <div class="topic">FOR GENERAL ENQUIRIES</div>
+              <div class="text-one">info.healthassist@gmail.com</div>
+            </div>
+            <div class="phone details">
+              <i class="fas fa-phone-alt"></i>
+              <div class="topic">Phone</div>
+              <div class="text-one">+1416-555-0707</div>
+              <div class="text-two">+1416-555-0261</div>
+            </div>
+            <div class="email details">
+              <i class="fas fa-envelope"></i>
+              <div class="topic">Email</div>
+              <div class="text-one">healthlab@gmail.com</div>
+              <div class="text-two">help.patient@gmail.com</div>
+            </div>
+          </div>
+          <div class="right-side">
+            <div class="topic-text">Send us a message</div>
+            <p>We’re happy to speak with you about any healthcare related issues you may be experiencing to identify if our services meet your needs.</p>
+            <form action="#">
+              <div class="input-box input-box message-box">
+                <input type="text" placeholder="Enter Your Query" id="message" />
+              </div>
+              <div class="button">
+                <input type="button" value="Send Now" onclick="handleSubmit()"/>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      $(function () {
+        $("#nav-placeholder").load("./Navbar.html");
+      });
+    </script>
+   
+    <script>
+      async function handleSubmit(){
+        const res = await getUserData(localStorage.getItem("id"));
+        if(res && res.data){
+          const payload = {
+            name: `${res.data.firstname} ${res.data.lastname}`,
+            email:res.data.email,
+            patientId : res.data.id,
+            phone:res.data.phone,
+            message:document.getElementById("message").value
+          }
+          const response = await contactUS(payload)
+          if(response && response.data){
+            alert(response.message)
+            window.location.reload()
+          }else{
+            alert(response.message)
+          }
+        }
+      }
+    </script>
+  </body>
+  <script src="../JS/API/Api.js"></script>
+  <script src="../JS/API/Request.js"></script>
+</html>

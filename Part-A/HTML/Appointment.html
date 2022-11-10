@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/Appointment.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="main" id="container">
+        <div id="left"></div>
+        <div id="right">
+            <h1 id="login">Book Online Doctor Consultation</h1><br>
+            <select class="client-info" name="department" id="department" onchange="handleOnchange()">
+                <option value="" disabled selected>Department</option>
+            </select>
+            <select class="client-info" name="doctor" id="doctor">
+                <option value="" disabled selected>Doctor</option>
+            </select>
+            <div><input class="client-info" type="date" name="date"id="date"></div>
+            <div><input class="client-info1" type="time" id="time" name="time"></div>
+            <input type="submit" id="submit" type="button" class="client-info" value="Submit" onclick="handleSubmit()">
+        </div>
+    </div>
+    <script>
+        $(function () {
+          $("#nav-placeholder").load("./Navbar.html");
+        });
+    </script>
+
+</body>
+<script src="../JS/API/Api.js"></script>
+<script src="../JS/API/Request.js"></script>
+<script src="../JS/Appointment.js"></script>
+</html>
